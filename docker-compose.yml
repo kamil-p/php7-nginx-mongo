@@ -1,0 +1,25 @@
+version: '2'
+services:
+  php:
+    build: ./images/php/
+    ports:
+      - "9000:9000"
+    working_dir: /var/www
+    volumes:
+      - ./volumes:/var/www
+    links:
+      - mongo
+  nginx:
+    build: ./images/nginx
+    volumes:
+      - ./volumes:/var/www
+    ports:
+      - "80:80"
+    links:
+      - php
+  mongo:
+    image: mongo
+    volumes:
+      - ./images/mongo:/data/db
+    ports:
+      - "27017:27017"
