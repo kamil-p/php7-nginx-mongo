@@ -38,6 +38,6 @@ ADD ./config/entrypoint.sh /entrypoint.sh
 
 VOLUME /var/www
 WORKDIR /var/www
-USER www-data
+#USER www-data
 
 #ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
